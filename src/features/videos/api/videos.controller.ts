@@ -31,7 +31,7 @@ export class VideosController {
   }
 
   @HttpCode(204)
-  @Put('id')
+  @Put(':id')
   async updateVideo(
     @Param('id', ParseIntPipe) id: number,
     @Body() body: UpdateVideoInputModel,
@@ -40,13 +40,13 @@ export class VideosController {
   }
 
   @HttpCode(204)
-  @Delete('id')
+  @Delete(':id')
   async deleteVideo(@Param('id', ParseIntPipe) id: number): Promise<void> {
     await this.videoService.deleteVideo(id);
   }
 
   @HttpCode(200)
-  @Get('id')
+  @Get(':id')
   async getVideo(
     @Param('id', ParseIntPipe) id: number,
   ): Promise<VideoViewModel> {
