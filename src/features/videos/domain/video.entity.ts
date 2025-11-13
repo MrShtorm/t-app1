@@ -22,7 +22,7 @@ export class VideoEntity {
   author: string;
   @Column({ name: 'can_be_downloaded', type: 'boolean' })
   canBeDownloaded: boolean;
-  @Column({ name: 'min_age_restriction' })
+  @Column({ name: 'min_age_restriction', nullable: true })
   minAgeRestriction: number;
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
