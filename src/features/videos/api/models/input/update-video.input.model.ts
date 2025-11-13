@@ -3,7 +3,6 @@ import {
   IsBoolean,
   IsDate,
   IsEnum,
-  IsNotEmpty,
   IsNumber,
   IsOptional,
   IsString,
@@ -14,19 +13,19 @@ import {
 import { Resolutions } from '../../../domain/resolutions.enum';
 
 export class UpdateVideoInputModel {
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   @MaxLength(40)
   title: string;
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   @MaxLength(20)
   author: string;
-  @IsNotEmpty()
+  @IsOptional()
   @IsArray()
   @IsEnum(Resolutions, { each: true })
   availableResolutions: Resolutions[];
-  @IsNotEmpty()
+  @IsOptional()
   @IsBoolean()
   canBeDownloaded: true;
   @IsOptional()
@@ -34,7 +33,7 @@ export class UpdateVideoInputModel {
   @Min(1)
   @Max(18)
   minAgeRestriction: number | null;
-  @IsNotEmpty()
+  @IsOptional()
   @IsDate()
   publicationDate: Date;
 }
