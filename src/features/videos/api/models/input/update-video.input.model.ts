@@ -3,37 +3,43 @@ import {
   IsBoolean,
   IsDate,
   IsEnum,
+  IsNotEmpty,
   IsNumber,
-  IsOptional,
   IsString,
   Max,
   MaxLength,
   Min,
 } from 'class-validator';
 import { Resolutions } from '../../../domain/resolutions.enum';
+import { Type } from 'class-transformer';
 
 export class UpdateVideoInputModel {
-  @IsOptional()
+  @IsNotEmpty()
   @IsString()
   @MaxLength(40)
+  @Type(() => String)
   title: string;
-  @IsOptional()
+  @IsNotEmpty()
   @IsString()
   @MaxLength(20)
+  @Type(() => String)
   author: string;
-  @IsOptional()
+  @IsNotEmpty()
   @IsArray()
   @IsEnum(Resolutions, { each: true })
   availableResolutions: Resolutions[];
-  @IsOptional()
+  @IsNotEmpty()
   @IsBoolean()
+  @Type(() => Boolean)
   canBeDownloaded: true;
-  @IsOptional()
+  @IsNotEmpty()
   @IsNumber()
   @Min(1)
   @Max(18)
+  @Type(() => Number)
   minAgeRestriction: number | null;
-  @IsOptional()
+  @IsNotEmpty()
   @IsDate()
+  @Type(() => Date)
   publicationDate: Date;
 }
