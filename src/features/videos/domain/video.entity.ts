@@ -45,7 +45,7 @@ export class VideoEntity {
     const _video = new VideoEntity();
     _video.title = video.title;
     _video.author = video.author;
-    _video.canBeDownloaded = true;
+    _video.canBeDownloaded = false;
     _video.minAgeRestriction = null;
     _video.publicationDate = addDays(new Date(), 1);
     _video.availableResolutions = video.availableResolutions;
