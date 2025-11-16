@@ -47,6 +47,7 @@ export class VideoEntity {
     _video.author = video.author;
     _video.canBeDownloaded = false;
     _video.minAgeRestriction = null;
+    _video.createdAt = new Date();
     _video.publicationDate = addDays(new Date(), 1);
     _video.availableResolutions = video.availableResolutions;
 
