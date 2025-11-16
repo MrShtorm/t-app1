@@ -7,6 +7,7 @@ import {
   IsNotEmpty,
   IsNumber,
   IsString,
+  Matches,
   Max,
   MaxLength,
   Min,
@@ -36,7 +37,7 @@ export class UpdateVideoInputModel {
   @Max(18)
   minAgeRestriction: number | null;
   @IsNotEmpty()
-  @IsDate()
-  @IsISO8601()
+  // @IsDate()
+  @Matches(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/)
   publicationDate: Date;
 }
