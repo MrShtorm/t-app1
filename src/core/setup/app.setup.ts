@@ -3,6 +3,6 @@ import { prefixSetup } from './prefix.setup';
 import { pipesSetup } from './pipes.setup';
 
 export function appSetup(app: INestApplication) {
-  prefixSetup(app);
+  // prefixSetup(app);
   pipesSetup(app);
 }

@@ -8,6 +8,8 @@ import { APP_FILTER } from '@nestjs/core';
 import { AllExceptionsFilter } from '../core/common/exceptions';
 import { McpModule } from '@nestjs-mcp/server';
 import { MCPServerConfig } from '../core/config/mcp';
+import { BlogModule } from './blog/blog.module';
+import { PostModule } from './post/post.module';
 
 @Module({
   imports: [
@@ -15,10 +17,16 @@ import { MCPServerConfig } from '../core/config/mcp';
       isGlobal: true,
       envFilePath: `.${process.env.NODE_ENV}.env`,
     }),
-    McpModule.forRootAsync(MCPServerConfig()),
+    // McpModule.forRootAsync(MCPServerConfig()),
+    McpModule.forRoot({
+      name: 'test',
+      version: '1.0.0',
+    }),
     TypeOrmModule.forRootAsync(TypeOrmConfigService()),
     TestingModule,
     VideosModule,
+    BlogModule,
+    PostModule,
   ],
   controllers: [],
   providers: [

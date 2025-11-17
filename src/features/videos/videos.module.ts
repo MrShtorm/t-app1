@@ -15,7 +15,9 @@ import { McpModule } from '@nestjs-mcp/server';
     McpModule.forFeature(),
     TypeOrmModule.forFeature([VideoEntity, VideoViewEntity]),
   ],
-  controllers: [VideosController],
+  controllers: [
+    /*VideosController*/
+  ],
   providers: [
     VideosMcp,
     VideoService,
