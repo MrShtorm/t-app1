@@ -17,11 +17,7 @@ import { PostModule } from './post/post.module';
       isGlobal: true,
       envFilePath: `.${process.env.NODE_ENV}.env`,
     }),
-    // McpModule.forRootAsync(MCPServerConfig()),
-    McpModule.forRoot({
-      name: 'test',
-      version: '1.0.0',
-    }),
+    McpModule.forRootAsync(MCPServerConfig()),
     TypeOrmModule.forRootAsync(TypeOrmConfigService()),
     TestingModule,
     VideosModule,
