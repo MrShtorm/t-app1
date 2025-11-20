@@ -176,8 +176,8 @@ export class VideosMcp {
   }
 
   @Tool({
-    name: 'получить все видео',
-    description: 'Получает все видео',
+    name: 'все видео',
+    description: 'Получает все видео в БД',
     annotations: {
       destructiveHint: false,
       readOnlyHint: false,
