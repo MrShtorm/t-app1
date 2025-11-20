@@ -103,7 +103,7 @@ export class VideosMcp {
       content: [
         {
           type: 'text',
-          text: `Обновлено видео с id ${result}`,
+          text: `Обновлено видео с id ${id}`,
         },
       ],
     };
