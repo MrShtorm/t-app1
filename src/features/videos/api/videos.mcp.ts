@@ -12,7 +12,7 @@ export class VideosMcp {
     private readonly videoQueryRepository: VideoQueryRepository,
   ) {}
 
-  @Tool({ name: 'работоспособность сервера' })
+  @Tool({ name: 'health_check' })
   healthCheck(): CallToolResult {
     return { content: [{ type: 'text', text: 'OK' }] };
   }
