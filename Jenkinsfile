@@ -4,12 +4,12 @@ pipeline {
         stage('Checkout') {
             steps{
                 git branch: 'main',
-                url: 'https://github.com/MrShtorm/t-app.git'
+                url: 'https://github.com/MrShtorm/t-app1.git'
             }
         }
         stage('Docker build') {
             steps{
-                    sh 'docker build -t t-app .'
+                    sh 'docker build -t t-app1 .'
             }    
         }
         stage('Docker compose down') {
