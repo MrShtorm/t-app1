@@ -22,5 +22,10 @@ pipeline {
                     sh 'docker compose up -d'
             }    
         }
+        stage('Message') {
+            steps{
+                    sh 'curl curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "-1003311240189", "text": "git push complete"}' https://api.telegram.org/bot8257725463:AAEddBjP--yvy1QeXY8bKyURoUYr08Qs10c/sendMessage'
+            }    
+        }
     }
 }
