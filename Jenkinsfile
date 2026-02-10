@@ -31,8 +31,8 @@ pipeline {
                     sh """
                     curl -X POST \
                     -H "Content-Type: application/json" \
-                    -d '{"chat_id":"${secrets.CHAT_ID}","text":"git push complete"}' \
-                    https://api.telegram.org/bot${secrets.TOKEN_ID}/sendMessage
+                    -d '{"chat_id":"$CHAT_ID","text":"git push complete"}' \
+                    https://api.telegram.org/bot$TOKEN_ID/sendMessage
                     """
             }    
         }
