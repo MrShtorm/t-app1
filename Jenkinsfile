@@ -10,7 +10,7 @@ pipeline {
             steps{
                 git branch: 'main',
                 url: 'git@github.com:MrShtorm/t-app1.git'
-                credentialsId: 'MrShtorm'
+                credentialsId: 't-app_git'
             }
         }
         stage('Docker build') {
