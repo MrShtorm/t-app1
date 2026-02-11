@@ -3,7 +3,6 @@ pipeline {
     environment{
         TOKEN_ID=credentials('TOKEN_ID')
         CHAT_ID=credentials('CHAT_ID')
-        
     }
     stages {
         stage('Checkout') {
