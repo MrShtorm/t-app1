@@ -11,11 +11,6 @@ pipeline {
                 url: 'git@github.com:MrShtorm/t-app1.git',
                 credentialsId: 't-app_git'
             }
-            steps{
-                git branch: 'ci',
-                url: 'git@github.com:MrShtorm/t-app1.git',
-                credentialsId: 't-app_git'
-            }
         }
         stage('Docker build') {
             steps{
