@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps{
                 git branch: 'main',
-                url: 'git@github.com:MrShtorm/t-app1.git'
+                url: 'git@github.com:MrShtorm/t-app1.git',
                 credentialsId: 't-app_git'
             }
         }
