@@ -3,14 +3,14 @@ pipeline {
     environment{
         TOKEN_ID=credentials('TOKEN_ID')
         CHAT_ID=credentials('CHAT_ID')
-        t-app_git=credentials('t-app_git')
+        
     }
     stages {
         stage('Checkout') {
             steps{
                 git branch: 'main',
                 url: 'git@github.com:MrShtorm/t-app1.git'
-                credentialsId: 't-app_git'
+                credentialsId: 'MrShtorm'
             }
         }
         stage('Docker build') {
