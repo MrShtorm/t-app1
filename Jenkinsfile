@@ -10,14 +10,14 @@ pipeline {
                deleteDir()
             } 
         }
-        stage('Checkout') {
+        stage('Checkout ci') {
             steps{
                 git branch: 'ci',
                 url: 'git@github.com:MrShtorm/t-app1.git',
                 credentialsId: 't-app_git'
             }
         }
-        stage('Checkout') {
+        stage('Checkout main') {
             steps{
                 git branch: 'main',
                 url: 'git@github.com:MrShtorm/t-app1.git',
