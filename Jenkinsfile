@@ -5,13 +5,6 @@ pipeline {
         CHAT_ID=credentials('CHAT_ID')
     }
     stages {
-        stage('Checkout ci') {
-            steps{
-                git branch: 'ci',
-                url: 'git@github.com:MrShtorm/t-app1.git',
-                credentialsId: 't-app_git'
-            }
-        }
         stage('Checkout main') {
             steps{
                 git branch: 'main',
