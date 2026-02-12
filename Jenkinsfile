@@ -41,7 +41,7 @@ pipeline {
                     sh 'docker compose up -d'
             }    
         }
-        post {
+    post {
         always {
             cleanWs()
         }
