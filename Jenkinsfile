@@ -9,6 +9,7 @@ pipeline {
             steps{
                deleteDir()
             } 
+        }
         stage('Checkout') {
             steps{
                 git branch: 'ci',
