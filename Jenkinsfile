@@ -5,11 +5,7 @@ pipeline {
         CHAT_ID=credentials('CHAT_ID')
     }
     stages {
-        stage('Delete workspace') {
-            steps{
-               deleteDir()
-            } 
-        }
+        
         stage('Checkout ci') {
             steps{
                 git branch: 'ci',
