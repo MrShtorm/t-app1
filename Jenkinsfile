@@ -41,13 +41,24 @@ pipeline {
                     sh 'docker compose up -d'
             }    
         }
-        stage('Message') {
-            steps{
-                    sh """
-                    
-                    curl -s -X POST https://api.telegram.org/bot\${TOKEN_ID}/sendMessage -d chat_id=\${CHAT_ID} -d parse_mode=MarkdownV2 -d text='*Job*: `${env.JOB_NAME}#${env.BUILD_NUMBER}`\n*Build url*: `${env.BUILD_URL}`\n*STATUS*: `SUCCESS`'
-                    """
-            }    
+        post {
+        always {
+            cleanWs()
+        }
+        success {
+            sh  ("""
+                        curl -s -X POST https://api.telegram.org/bot\${TOKEN_ID}/sendMessage -d chat_id=\${CHAT_ID} -d parse_mode=MarkdownV2 -d text='*Job*: `${env.JOB_NAME}#${env.BUILD_NUMBER}`\n*Build url*: `${env.BUILD_URL}`\n*STATUS*: `SUCCESS`'
+                   """)
+        }
+        aborted {
+            sh  ("""
+                        curl -s -X POST https://api.telegram.org/bot\${TOKEN_ID}/sendMessage -d chat_id=\${CHAT_ID} -d parse_mode=MarkdownV2 -d text='*Job*: `${env.JOB_NAME}#${env.BUILD_NUMBER}`\n*Build url*: `${env.BUILD_URL}`\n*STATUS*: `ABORTED`'
+                    """)
+        }
+        failure {
+            sh  ("""
+                        curl -s -X POST https://api.telegram.org/bot\${TOKEN_ID}/sendMessage -d chat_id=\${CHAT_ID} -d parse_mode=MarkdownV2 -d text='*Job*: `${env.JOB_NAME}#${env.BUILD_NUMBER}`\n*Build url*: `${env.BUILD_URL}`\n*STATUS*: `FAILURE`'
+                    """)
         }
     }
 }
