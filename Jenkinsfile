@@ -8,7 +8,7 @@ pipeline {
         stage('Delete workspace') {
             steps{
                deleteDir()
-            }
+            } 
         stage('Checkout') {
             steps{
                 git branch: 'ci',
