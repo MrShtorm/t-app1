@@ -44,10 +44,8 @@ pipeline {
         stage('Message') {
             steps{
                     sh """
-                    curl -X POST \
-                    -H "Content-Type: application/json" \
-                    -d '{"chat_id":"$CHAT_ID","text":"git push complete"}' \
-                    https://api.telegram.org/bot$TOKEN_ID/sendMessage -d parse_mode=MarkdownV2 -d text='*Job*: `${env.JOB_NAME}#${env.BUILD_NUMBER}`\n*Build url*: `${env.BUILD_URL}`\n*STATUS*: `SUCCESS`'
+                    
+                    curl -s -X POST https://api.telegram.org/bot\${TOKEN_ID}/sendMessage -d chat_id=\${CHAT_ID} -d parse_mode=MarkdownV2 -d text='*Job*: `${env.JOB_NAME}#${env.BUILD_NUMBER}`\n*Build url*: `${env.BUILD_URL}`\n*STATUS*: `SUCCESS`'
                     """
             }    
         }
