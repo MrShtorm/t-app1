@@ -12,6 +12,20 @@ pipeline {
                 credentialsId: 't-app_git'
             }
         }
+         stage('Checkout ci') {
+            steps {
+                dir('ci-files') {
+                    git branch: 'ci',
+                        url: 'git@github.com:MrShtorm/t-app1.git',
+                        credentialsId: 't-app_git'
+                }
+            }
+        }
+        stage('Copy Dockerfile') {
+            steps {
+                sh 'cp ci-files/Dockerfile t-app1/'
+            }
+        }
         stage('Docker build') {
             steps{
                     sh 'docker build -t t-app1 .'
