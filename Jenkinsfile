@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Copy Dockerfile') {
             steps {
-                sh 'cp ci-files/Dockerfile /..'
+                sh 'cp ci-files/Dockerfile .'
             }
         }
         stage('Docker build') {
