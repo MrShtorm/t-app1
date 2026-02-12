@@ -8,6 +8,7 @@ pipeline {
         
         stage('Checkout ci') {
             steps{
+                sh 'pwd',
                 git branch: 'ci',
                 url: 'git@github.com:MrShtorm/t-app1.git',
                 credentialsId: 't-app_git'
